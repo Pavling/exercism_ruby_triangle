@@ -24,12 +24,12 @@ class Triangle
 
   private
   def validate_sides
-    raise TriangleError if any_side_is_zero?
+    raise TriangleError unless all_sides_are_greater_than_zero?
   end
 
   private
-  def any_side_is_zero?
-    [@side1, @side2, @side3].any? { |side| side.zero? }
+  def all_sides_are_greater_than_zero?
+    [@side1, @side2, @side3].all? { |side| side > 0 }
   end
 
 end

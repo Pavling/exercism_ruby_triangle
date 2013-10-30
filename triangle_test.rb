@@ -49,7 +49,6 @@ class TriangleTest < MiniTest::Unit::TestCase
   end
 
   def test_triangles_with_negative_sides_are_illegal
-    skip
     assert_raises(TriangleError) do
       Triangle.new(3, 4, -5).kind
     end
