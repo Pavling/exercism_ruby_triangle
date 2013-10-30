@@ -11,22 +11,18 @@ class TriangleTest < MiniTest::Unit::TestCase
   end
 
   def test_isosceles_triangles_have_last_two_sides_equal
-    skip
     assert_equal :isosceles, Triangle.new(3, 4, 4).kind
   end
 
   def test_isosceles_triangles_have_first_and_last_sides_equal
-    skip
     assert_equal :isosceles, Triangle.new(4, 3, 4).kind
   end
 
   def test_isosceles_triangles_have_two_first_sides_equal
-    skip
     assert_equal :isosceles, Triangle.new(4, 4, 3).kind
   end
 
   def test_isosceles_triangles_have_in_fact_exactly_two_sides_equal
-    skip
     assert_equal :isosceles, Triangle.new(10, 10, 2).kind
   end
 
