@@ -1,6 +1,7 @@
 class Triangle
   def initialize(side1, side2, side3)
     @side1, @side2, @side3 = side1, side2, side3
+    validate_sides
   end
 
   def kind
@@ -21,4 +22,16 @@ class Triangle
     [@side1, @side2, @side3].uniq.size
   end
 
+  private
+  def validate_sides
+    raise TriangleError if any_side_is_zero?
+  end
+
+  private
+  def any_side_is_zero?
+    [@side1, @side2, @side3].any? { |side| side.zero? }
+  end
+
 end
+
+class TriangleError < StandardError; end
