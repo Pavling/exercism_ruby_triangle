@@ -25,11 +25,21 @@ class Triangle
   private
   def validate_sides
     raise TriangleError unless all_sides_are_greater_than_zero?
+    raise TriangleError if triangle_inequality?
   end
 
   private
   def all_sides_are_greater_than_zero?
     [@side1, @side2, @side3].all? { |side| side > 0 }
+  end
+
+  private
+  def triangle_inequality?
+    [@side1, @side2, @side3].any? { |side| side >= (sum_of_sides - side) }
+  end
+
+  def sum_of_sides
+    @sum_of_sides ||= @side1 + @side2 + @side3
   end
 
 end
