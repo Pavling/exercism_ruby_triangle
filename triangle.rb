@@ -4,18 +4,15 @@ class Triangle
   end
 
   def kind
-    return :equilateral if equilateral?
-    return :isosceles if isosceles?
+    kind_with_amount_of_equal_sides(number_of_equal_length_sides)
   end
 
   private
-  def equilateral?
-    number_of_equal_length_sides == 1
-  end
-
-  private
-  def isosceles?
-    number_of_equal_length_sides == 2
+  def kind_with_amount_of_equal_sides(number_of_equal_length_sides)
+    {
+      1 => :equilateral,
+      2 => :isosceles,
+      }[number_of_equal_length_sides]
   end
 
   private
