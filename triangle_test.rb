@@ -1,13 +1,12 @@
 require 'minitest/autorun'
 require_relative 'triangle'
 
-class TriangeTest < MiniTest::Unit::TestCase
+class TriangleTest < MiniTest::Unit::TestCase
   def test_equilateral_triangles_have_equal_sides
     assert_equal :equilateral, Triangle.new(2, 2, 2).kind
   end
 
   def test_larger_equilateral_triangles_also_have_equal_sides
-    skip
     assert_equal :equilateral, Triangle.new(10, 10, 10).kind
   end
 
