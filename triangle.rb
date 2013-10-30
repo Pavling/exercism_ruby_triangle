@@ -1,15 +1,10 @@
 class Triangle
   def initialize(side1, side2, side3)
     @side1, @side2, @side3 = side1, side2, side3
-    validate_sides
+    raise TriangleError unless valid?
   end
 
   def kind
-    kind_with_amount_of_equal_sides(number_of_equal_length_sides)
-  end
-
-  private
-  def kind_with_amount_of_equal_sides(number_of_equal_length_sides)
     {
       1 => :equilateral,
       2 => :isosceles,
@@ -23,9 +18,8 @@ class Triangle
   end
 
   private
-  def validate_sides
-    raise TriangleError unless all_sides_are_greater_than_zero?
-    raise TriangleError if triangle_inequality?
+  def valid?
+    all_sides_are_greater_than_zero? && no_triangle_inequality?
   end
 
   private
@@ -34,8 +28,8 @@ class Triangle
   end
 
   private
-  def triangle_inequality?
-    [@side1, @side2, @side3].any? { |side| side >= (sum_of_sides - side) }
+  def no_triangle_inequality?
+    [@side1, @side2, @side3].all? { |side| side < (sum_of_sides - side) }
   end
 
   def sum_of_sides
