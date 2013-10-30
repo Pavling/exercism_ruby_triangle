@@ -27,22 +27,18 @@ class TriangleTest < MiniTest::Unit::TestCase
   end
 
   def test_scalene_triangles_have_no_equal_sides
-    skip
     assert_equal :scalene, Triangle.new(3, 4, 5).kind
   end
 
   def test_scalene_triangles_have_no_equal_sides_at_a_larger_scale_too
-    skip
     assert_equal :scalene, Triangle.new(10, 11, 12).kind
   end
 
   def test_scalene_triangles_have_no_equal_sides_in_descending_order_either
-    skip
     assert_equal :scalene, Triangle.new(5, 4, 2).kind
   end
 
   def test_very_small_triangles_are_legal
-    skip
     assert_equal :scalene, Triangle.new(0.4, 0.6, 0.3).kind
   end
 

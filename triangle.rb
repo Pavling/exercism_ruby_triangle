@@ -12,6 +12,7 @@ class Triangle
     {
       1 => :equilateral,
       2 => :isosceles,
+      3 => :scalene,
       }[number_of_equal_length_sides]
   end
 
